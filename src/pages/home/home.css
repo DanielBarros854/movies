@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+}
+
+.list-movies {
+  margin: 15px;
+}
+
+.list-movies article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  margin: 15px;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.list-movies strong {
+  padding-bottom: 15px;
+  font-size: 22px;
+}
+
+.list-movies img {
+  width: 900px;
+  max-height: 350px;
+}
+
+.list-movies article a {
+  text-decoration: none;
+  color: #fff;
+  background-color: brown;
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
