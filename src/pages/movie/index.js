@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import api from '../../services/api';
 import './movie.css'
 
@@ -16,6 +17,7 @@ const Movie = () => {
 
       if (response.data.length === 0) {
         navigate('/')
+        toast.error('Filme não encontrado')
         return;
       }
 
@@ -47,13 +49,13 @@ const Movie = () => {
     const has_movie = saved_movies.some((saved_movie) => saved_movie.id === movie.id);
 
     if (has_movie) {
-      alert('Você ja possui esse filme salvo.');
+      toast.error('Você ja possui esse filme salvo.');
       return;
     }
 
     saved_movies.push(movie);
     localStorage.setItem('movies', JSON.stringify(saved_movies));
-    alert('Filme salvo com sucesso');
+    toast.success('Filme salvo com sucesso.')
   }
 
   return (
