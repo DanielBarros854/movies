@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
+import Favorites from "./pages/favorites";
 import Home from "./pages/home";
 import Movie from "./pages/movie";
 
@@ -9,7 +10,8 @@ const Routers = () => {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/filme/:id" element={<Movie />}/>  
+        <Route path="/filme/:id" element={<Movie />} />
+        <Route path="/favoritos" element={<Favorites />} />
       </Routes>
     </BrowserRouter>
   )

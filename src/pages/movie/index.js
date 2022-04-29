@@ -39,6 +39,23 @@ const Movie = () => {
     )
   }
 
+  const saveMovie = () => {
+
+    const my_list = localStorage.getItem('movies');
+    let saved_movies = JSON.parse(my_list) || []; 
+
+    const has_movie = saved_movies.some((saved_movie) => saved_movie.id === movie.id);
+
+    if (has_movie) {
+      alert('Você ja possui esse filme salvo.');
+      return;
+    }
+
+    saved_movies.push(movie);
+    localStorage.setItem('movies', JSON.stringify(saved_movies));
+    alert('Filme salvo com sucesso');
+  }
+
   return (
     <div className='movie-info'>
       <h1>{movie.nome}</h1>
@@ -47,7 +64,7 @@ const Movie = () => {
       {movie.sinopse}
 
       <div className='buttons'>
-        <button onClick={() => {}}>Salvar</button>
+        <button onClick={ saveMovie }>Salvar</button>
         <button><a target='_blank' rel='noreferrer' href={`https://www.youtube.com/results?search_query=${movie.nome} Trailer`}>Trailer</a></button>
       </div>
     </div>
